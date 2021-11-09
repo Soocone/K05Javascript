@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qu04.html</title>
+</head>
+<body>
+    <h2>document.write()로 표 만들기</h2>
+    <hr width="400px" align="left">
+    <span id="calSquare"></span>
+    
+    <script>
+        var numSquare = "<table border='1'>";
+            for(var x=0; x<=1; x++){
+                numSquare += "<tr>"; 
+
+                    for(var y=0; y<=10; y++){
+                        if(x==0){
+                            if(y==0)
+                                numSquare += "<td>"+ "n"+ "</td>";
+                            else
+                                numSquare += "<td>"+ (y-1)+ "</td>";
+                        }
+
+                        else{
+                            if(y==0)
+                                numSquare += "<td>"+ "n<sup>2</sup>"+ "</td>";
+                            else
+                                numSquare += "<td>"+ (y-1)*(y-1)+ "</td>";
+                        }
+                    }
+                    numSquare += "</tr>";
+            }
+            numSquare += "</table>";
+            document.getElementById("calSquare").innerHTML=numSquare;
+    </script>
+</body>
+</html>

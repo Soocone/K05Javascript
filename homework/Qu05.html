@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qu05.html</title>
+
+</head>
+<body>
+    <h2>월화수목금토일</h2>
+    <hr width="400px" align="left">
+    
+    <script>
+        var getDay = function(){
+
+            var day = prompt("월화수목금토일 중에서 입력하세요"+"\r\n");
+            if(day=='월')
+                document.write(day+"은 출근");
+            else if(day=='화')
+                document.write(day+"는 출근");
+            else if(day=='수')
+                document.write(day+"는 출근");
+            else if(day=='목')
+                document.write(day+"은 출근");
+            else if(day=='금')
+                document.write(day+"은 출근");
+            else if(day=='토')
+                document.write(day+"는 휴일");
+            else if(day=='일')
+                document.write(day+"은 휴일");
+        }
+        getDay();
+
+    </script> 
+</body>
+</html>
