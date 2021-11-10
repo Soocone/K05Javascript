@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qu09.html</title>
+</head>
+<body>
+    <h2>난수10개 생성</h2><hr>
+    
+    <script>
+    var ranArray = new Array();
+    for(var i=0; i<10; i++){
+        var j = Math.random()*100+1;
+        ranArray[i] = Math.floor(j);
+        document.write(ranArray[i]+"&nbsp")
+    }
+
+    document.write("<hr>");
+
+    var bigNum= ranArray[0];
+    for(var i=0; i<10; i++){
+        if(bigNum <= ranArray[i])
+            bigNum = ranArray[i];
+    }
+    document.write("가장 큰 수는? "+bigNum);
+
+    </script>
+</body>
+</html>

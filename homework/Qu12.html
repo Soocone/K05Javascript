@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><Qu12 class="html"></Qu12></title>
+</head>
+<body>
+    <h2>문자열 배열 다루기</h2><hr>
+
+    <script>
+        var names = new Array("wonsun", "jaemoonlee", "kitae", "gracehwang");
+        document.write("이름:");
+        for(var i=0; i<names.length; i++){
+            document.write("&nbsp"+names[i]);
+        }
+
+
+        document.write("<br>가장 긴 이름: ");
+        var max =0;
+        for(var j=0; j<names.length; j++){
+            if(max < names[j].length)
+                max = names[j].length;
+        }
+
+        for(var k=0; k<names.length; k++){
+            if(names[k].length==max)
+                document.write("&nbsp"+names[k]);
+        }
+
+
+        document.write("<br>가장 먼저 나오는 이름: ");
+        var first ="z".charCodeAt(0);
+        for(var n=0; n<names.length; n++){
+            if(first > names[n].charCodeAt(0))
+                first = names[n].charCodeAt(0);
+        }
+
+        for(var m=0; m<names.length; m++){
+            if(names[m].charCodeAt(0)==first)
+                document.write("&nbsp"+names[m]);
+        }
+
+
+        document.write("<br>증가순 이름: ");
+        names.sort();
+        for(var h=0; h<names.length; h++){
+            document.write("&nbsp"+names[h]);
+        }
+
+    </script>
+</body>
+</html>

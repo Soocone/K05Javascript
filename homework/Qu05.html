@@ -15,23 +15,31 @@
         var getDay = function(){
 
             var day = prompt("월화수목금토일 중에서 입력하세요"+"\r\n");
-            if(day=='월')
-                document.write(day+"은 출근");
-            else if(day=='화')
-                document.write(day+"는 출근");
-            else if(day=='수')
-                document.write(day+"는 출근");
-            else if(day=='목')
-                document.write(day+"은 출근");
-            else if(day=='금')
-                document.write(day+"은 출근");
-            else if(day=='토')
-                document.write(day+"는 휴일");
-            else if(day=='일')
-                document.write(day+"은 휴일");
+            switch(day){
+            case '월'||'화'||'수'||'목'||'금'
+                : document.write(day+"요일은 출근");
+                break;
+            case '토'||'일'
+                : document.write(day+"요일은 휴일");
+                break;
+            }
         }
         getDay();
 
     </script> 
+
+    <!-- <script>
+        var getDay = function(){
+
+            var day = prompt("월화수목금토일 중에서 입력하세요");
+            if(day=='월'||day=='화'||day=='수'||day=='목'||day=='금')
+                document.write(day+"요일은 출근");
+            else if(day=='토'||'일')
+                document.write(day+"요일은 휴일");
+
+        }
+        getDay();
+    </script>  -->
+
 </body>
 </html>
