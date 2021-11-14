@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qu15.html</title>
+
+    <style>
+        div {
+            width: 150px; height: 40px; line-height: 40px;
+            display: inline-block; text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.write("<h2>16개의 랜덤한 색 만들기</h2><hr>");
+
+        function getRanColor(){
+            var r= parseInt(Math.random()*255)+1;
+            var g= parseInt(Math.random()*255)+1;
+            var b= parseInt(Math.random()*255)+1;
+
+            var str = "<div style='background-color: rgb("+r+", "+g+", "+b+");'>"
+                +"rgb("+r+", "+g+", "+b+")</div>";
+            document.write(str);
+        }
+
+        for(var i=1; i<=16; i++){
+            getRanColor();
+        }
+    </script>    
+</body>
+</html>
