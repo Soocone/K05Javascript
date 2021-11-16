@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qu21.html</title>
+
+    <script>
+        function printImg(){
+            var fruits = document.getElementsByName("fruits");
+            var fruitImage = document.getElementById("img");
+    
+            for(var i=0; i<fruits.length; i++){
+                if(fruits[i].checked==true){
+                    fruitImage.src = "../images/"+fruits[i].value+".png";
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h2>라디오 버튼을 클릭하면 이미지를 출력합니다.</h2>
+    <hr>
+    <input type="radio" name="fruits" value="banana" 
+        onclick="printImg();">바나나
+    <input type="radio" name="fruits" value="mango" 
+        onclick="printImg();">망고
+    <input type="radio" name="fruits" value="apple" 
+        onclick="printImg();">사과
+    <br>
+    <img id="img"> 
+</body>
+</html>
