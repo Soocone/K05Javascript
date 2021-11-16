@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qu18.html</title>
+    
+    <script>
+        var showToggle = 1;
+        function showAnswer(flag){
+            var spans = document.getElementsByTagName("span");
+            var ps = document.getElementsByTagName("p");
+            
+
+            if(showToggle%2==0){
+                for(var i=0; i<spans.length; i++){
+                    spans[i].innerHTML = "답";
+                }
+                showToggle--;
+            }
+            else{
+                switch(flag){
+                    case 0:
+                    spans[flag].innerHTML = '6'; showToggle++; break;
+                    case 1:
+                    spans[flag].innerHTML = '144'; showToggle++; break;
+                    case 2:
+                    spans[flag].innerHTML = '-12'; showToggle++; break;
+                }
+            }   
+
+
+            // if(showToggle%2==0){
+            //     for(var i=0; i<spans.length; i++){
+            //         spans[i].innerHTML = "답";
+            //     }
+            //     showToggle--;
+            // }
+            // else{
+            //     for(var i=0; i<spans.length; i++){
+            //         spans[i].innerHTML = eval(ps[i].innerHTML);
+            //     }
+            //     showToggle++;
+            // }   
+
+            // if(showToggle%2==0){
+            //     for(var i=0; i<spans.length; i++){
+            //         spans[i].innerHTML = "답";
+            //     }
+            //     showToggle--;
+            // }
+            // else{
+            //     switch(flag){
+            //         case 0:
+            //         spans[0].innerHTML = '6'; showToggle++; break;
+            //         case 1:
+            //         spans[1].innerHTML = '144'; showToggle++; break;
+            //         case 2:
+            //         spans[2].innerHTML = '-12'; showToggle++; break;
+            // } 
+        }
+    </script>
+</head>
+<body>
+    <h3>계산해봅시다</h3>
+	<hr>
+	<p>2 + 4 = <span onclick="showAnswer(0);">답</span><p>
+	<p>4 * 20 + 64 = <span onclick="showAnswer(1);">답</span><p>
+	<p>20/5-8*2 = <span onclick="showAnswer(2);">답</span><p>
+</body>
+</html>
