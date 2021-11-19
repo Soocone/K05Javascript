@@ -16,12 +16,27 @@
         var setCookie = function(name, value, exp){//쿠키명, 쿠키값, 유효기간)
             var date = new Date();
             //유효시간은 내일로 설정된다.
-            date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+            date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);  //24*60*60=하루. 단위가 1000. =>하루에 해당하는 초
             console.log("유효시간", date.toUTCString());
             //쿠키생성: 쿠키명=쿠키값; 유효시간; 적용될경로;
             document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
         };
         
+        /*
+        쿠키생성 => name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+        우리가 생성한 쿠키 => popup1=팝업창열기;expires=2021-11-20;path=/
+        세미콜론으로 1차 split => 
+                              [0] ->  popup1=팝업창열기
+                              [1] ->  expires=2021-11-20
+                              [2] ->  path=/
+        이퀄로 2차 split =>
+                              [0]에 필요한 값이 있으므로
+                                쿠키명: popup1
+                                쿠키값: 팝업창열기
+
+        */
+
+
         //쿠키 읽기 기본
         /*
             쿠키는 ;(세미콜론)으로 구분되므로 1차 split() 하고
