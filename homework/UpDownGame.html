@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpDownGame.html</title>
+    <style>
+        #userNum{ width: 80px;}
+        #refreshBtn{ visibility: hidden;}
+        #img{ width: 300px;}
+        #count{ font-size: 1.5em;}
+    </style>
+    <script>
+        //전역변수 설정
+        var computerNum;
+        var gameCnt=0;
+		
+        //테스트를 위해 컴퓨터가 생성한 난수를 alert
+        window.onload = function(){
+            computerNum = parseInt(Math.random()*100+ 1);
+            alert("컴퓨터가 생성한 난수:"+computerNum);
+        }
+
+        //게임 구현
+        function gameCheck(){
+            //DOM 객체 가져오기
+            var userNum = document.getElementById("userNum");
+            var displayCnt = document.getElementById("count");
+            var img = document.getElementById("img");
+            var refreshBtn = document.getElementById("refreshBtn");
+            
+            
+            
+            //사용자가 공백 입력 또는 1~100사이의 숫자를 입력하지 않은 경우
+            if((userNum.value=='') || 
+                !(userNum.value>=1 && userNum.value<=100)){
+                alert('1~100 사이의 정수를 입력해주세요.'); 
+                img.src = '../images/error.jpg';
+                userNum.value='';
+                userNum.focus();
+                return false;
+            }
+
+            //사용자가 문자를 입력한 경우
+            for(var i=0 ; i<userNum.value.length ; i++){
+            if(!((userNum.value[i]>='a' && userNum.value[i]<='z') ||
+                (userNum.value[i]>='A' && userNum.value[i]<='Z') ||
+                (userNum.value[i]>='0' && userNum.value[i]<='9'))){
+                    alert('1~100 사이의 정수를 입력해주세요.');
+                    img.src = '../images/error.jpg';
+                    userNum.value='';
+                    userNum.focus();
+                    return false;
+                }
+            }
+            
+
+            //Down
+            if (userNum.value > computerNum){
+                img.src = '../images/down.jpg';
+                gameCnt++;
+                displayCnt.innerHTML = gameCnt;
+            }
+            //Up
+            else if (userNum.value < computerNum){
+                img.src = '../images/up.jpg';
+                gameCnt++;
+                displayCnt.innerHTML = gameCnt;
+            }
+            //정답일 경우
+            else{ 
+                img.src = '../images/answer.jpeg';
+                refreshBtn.style.visibility = "visible";
+            }
+
+
+            //7번만에 맞추지 못한 경우
+            if(gameCnt >= 8) {
+                alert('시도횟수가 초과하였습니다. 게임을 재시작합니다.');
+                location.reload();
+            } 
+        }
+            
+
+        //새로고침
+        function refresh(){
+            location.reload();
+        }
+    </script>
+</head>
+<body>
+    <h2>업다운게임</h2>
+    <h3>1~100 사이의 숫자를 입력하세요</h3>
+    <h4>시도횟수: <span id="count">0</span>회</h4>
+    숫자입력: <input type="text" id="userNum">
+    <button type="button" onclick="gameCheck();">확인</button>
+    <button type="button" onclick="refresh();" id="refreshBtn">
+        새로고침</button><br><br>
+    <img src="../images/updowngame.jpg" id="img">
+</body>
+</html>
